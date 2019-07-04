@@ -1,0 +1,17 @@
+<% if @dog.errors %>
+ <ul>
+   <% @dog.errors.full_messages.each do |msg| %>
+     <li style="color: red;"><%= msg %></li>
+   <% end %>
+ </ul>
+<% end %>
+<%= form_for(@dog) do |f| %>
+ <%= f.label "Dog Name" %>
+ <%= f.text_field :name %><br>
+ <%= f.label "Dog Breed" %>
+ <%= f.text_field :breed %><br>
+ <%= f.label "Dog Age" %>
+ <%= f.text_field :age %> <br>
+  <%= f.submit %>
+<% end %>
+
