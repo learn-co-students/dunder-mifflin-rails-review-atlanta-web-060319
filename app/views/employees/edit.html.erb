@@ -1,0 +1,26 @@
+<%#may not be needed %>
+<% if @employee.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+ 
+    <ul>
+    <% @employee.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@employee) do |f| %>
+  First name: <%= f.text_field :first_name %><br />
+  Last name : <%= f.text_field :last_name %><br />
+  Alias : <%= f.text_field :alias %><br />
+  Title : <%= f.text_field :title %><br />
+  Office : <%= f.text_field :office %><br />
+  Pic URL : <%= f.text_field :img_url %><br />
+  Dog: <%= f.collection_select :dog_id, Dog.all, :id, :name %><br \>
+
+  <%= f.submit %>
+<% end %>
+
+<p><%= link_to "All Employees", employees_path(@employees)%></p>

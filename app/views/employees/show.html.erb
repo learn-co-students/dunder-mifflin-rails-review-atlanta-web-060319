@@ -1,0 +1,11 @@
+<h1>This Employee</h1>
+
+<p>Name : <%=@employee.first_name+" "+@employee.last_name%></p>
+<p>Alias : <%=@employee.alias %></p>
+<p>Title : <%=@employee.title %></p>
+<p>Office : <%=@employee.office %></p>
+<p> Dog : <%= @employee.dog.name%><p>
+
+<p><%= link_to "Edit this page", edit_employee_path(@employee) %></p>
+<p><%= link_to "All Employees", employees_path(@employees)%></p>
+<p><%= link_to "All Dogs", dogs_path(@dogs)%></p>
